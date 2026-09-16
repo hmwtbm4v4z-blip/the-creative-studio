@@ -1,0 +1,70 @@
+/* Page-specific features only: services.html */
+@layer pages{
+#services-hero{padding: 120px 0;text-align: center;background: linear-gradient(135deg, var(--primary), var(--primary-light));color: #fff;}
+#services-hero h1{margin-bottom: 20px;font-size: 3.2rem;}
+#services-hero p{max-width: 880px;margin: 0 auto;color: #fff;}
+#services-directory{padding: 110px 0;}
+.services-page-grid{display: grid;grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));gap: 32px;}
+.service-detail-card{position: relative;display: flex;flex-direction: column;min-height: 100%;overflow: hidden;border-radius: 22px;background: #fff;box-shadow: 0 20px 45px rgba(0, 0, 0, .08);transition: .35s ease;}
+.service-detail-card:hover{transform: translateY(-10px);box-shadow: 0 32px 70px rgba(0, 0, 0, .14);}
+.service-detail-card::before{content: "";position: absolute;inset: 0 auto auto 0;width: 100%;height: 6px;background: linear-gradient(90deg, var(--primary), var(--primary-light));}
+.service-detail-content{display: flex;flex: 1;flex-direction: column;padding: 34px;}
+.service-icon{display: flex;align-items: center;justify-content: center;width: 72px;height: 72px;margin-bottom: 24px;border-radius: 20px;background: linear-gradient(135deg, var(--primary), var(--primary-light));color: #fff;font-size: 1.9rem;font-weight: 800;box-shadow: 0 15px 30px rgba(31, 115, 232, .24);}
+.service-detail-card h2{margin-bottom: 12px;color: var(--primary);font-size: 1.55rem;}
+.service-detail-card p{margin-bottom: 18px;}
+.service-feature-list{display: grid;gap: 11px;margin: 0 0 26px;padding: 0;}
+.service-feature-list li{display: flex;align-items: flex-start;gap: 10px;color: #444;}
+.service-feature-list li::before{content: "✔";color: #35a853;font-weight: 800;}
+.service-card-actions{display: flex;flex-wrap: wrap;gap: 12px;margin-top: auto;}
+#service-combinations{padding: 110px 0;background: #f8fbff;}
+.service-combination-grid{display: grid;grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));gap: 28px;}
+.service-combination-card{padding: 32px;border-radius: 20px;background: #fff;box-shadow: var(--shadow);}
+.service-combination-card h3{color: var(--primary);}
+.service-combination-card .badge{margin: 0 0 18px;}
+#ongoing-services{padding: 110px 0;}
+.ongoing-service-layout{display: grid;grid-template-columns: minmax(0, 1fr) minmax(280px, .8fr);gap: 50px;align-items: center;}
+.ongoing-service-card{padding: 38px;border-radius: 22px;background: linear-gradient(135deg, #eef6ff, #fff);box-shadow: var(--shadow);}
+.ongoing-service-card ul{display: grid;gap: 14px;margin: 24px 0;}
+.ongoing-service-card li{display: flex;align-items: flex-start;gap: 12px;}
+.ongoing-service-card li::before{content: "✓";color: var(--primary);font-weight: 800;}
+.service-frequency-box{padding: 38px;border-radius: 22px;background: linear-gradient(135deg, var(--primary), var(--primary-light));color: #fff;box-shadow: var(--shadow);}
+.service-frequency-box p,.service-frequency-box li{color: #fff;}
+.service-frequency-box ul{display: grid;grid-template-columns: repeat(2, minmax(0, 1fr));gap: 12px;margin-top: 22px;}
+.service-frequency-box li{padding: 12px 14px;border-radius: 12px;background: rgba(255, 255, 255, .15);font-weight: 600;}
+#services-process{padding: 110px 0;background: #f8fbff;}
+.services-process-grid{display: grid;grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));gap: 28px;}
+.services-process-card{padding: 32px;border-radius: 18px;background: #fff;box-shadow: var(--shadow);text-align: center;}
+.services-process-number{display: flex;align-items: center;justify-content: center;width: 58px;height: 58px;margin: 0 auto 20px;border-radius: 50%;background: var(--primary);color: #fff;font-size: 1.3rem;font-weight: 800;}
+#services-faq{padding: 110px 0;}
+@media (max-width: 900px) {#services-hero{padding: 90px 0;}
+#services-hero h1{font-size: 2.5rem;}
+.ongoing-service-layout{grid-template-columns: 1fr;}}
+@media (max-width: 560px) {.service-detail-content,.ongoing-service-card,.service-frequency-box{padding: 26px;}
+.service-frequency-box ul{grid-template-columns: 1fr;}}
+#services-hero{padding:112px 0;background:radial-gradient(circle at 86% 18%,rgba(255,255,255,.18),transparent 25%),linear-gradient(135deg,var(--primary),var(--primary-light));}
+#services-hero h1{font-size:clamp(2.45rem,5vw,4rem);}
+.services-directory-tools{display:grid;grid-template-columns:minmax(0,1fr) 260px auto;gap:14px;align-items:end;margin-bottom:12px;padding:22px;border:1px solid #dbe9ff;border-radius:18px;background:#f8fbff;}
+.services-directory-tools label{display:block;margin-bottom:7px;color:#172033;font-weight:800;}
+.services-directory-tools input,.services-directory-tools select{width:100%;min-height:48px;padding:12px 14px;border:1px solid #cad8eb;border-radius:11px;background:#fff;color:#172033;font:inherit;}
+.services-directory-tools input:focus,.services-directory-tools select:focus{border-color:var(--primary);outline:none;box-shadow:0 0 0 4px rgba(31,115,232,.13);}
+.services-filter-status{min-height:1.5em;margin:0 0 24px;color:var(--gray);font-weight:700;}
+.service-detail-card[hidden]{display:none;}
+.service-detail-card:focus-within{transform:translateY(-6px);box-shadow:0 26px 58px rgba(0,0,0,.12);}
+.service-card-actions .btn{text-align:center;}
+#services-faq .faq-container{display:grid;width:min(100%,920px);margin:0 auto;gap:13px;}
+#services-faq .faq-item{overflow:hidden;margin:0;border:1px solid rgba(31,115,232,.18);border-radius:14px;background:#fff;box-shadow:0 10px 28px rgba(23,32,51,.07);}
+#services-faq .faq-question{position:relative;display:flex;width:100%;align-items:center;justify-content:space-between;gap:20px;padding:20px 58px 20px 22px;border:0;border-radius:0;background:#fff;color:#172033;font:700 1rem/1.45 "Poppins",sans-serif;text-align:left;cursor:pointer;box-shadow:none;}
+#services-faq .faq-question::after{position:absolute;top:50%;right:22px;width:28px;height:28px;border-radius:50%;background:rgba(31,115,232,.1);color:#1F73E8;content:"+";font:700 1.35rem/28px "Inter",sans-serif;text-align:center;transform:translateY(-50%);}
+#services-faq .faq-question:hover{background:#f7fbff;}
+#services-faq .faq-question:focus-visible{outline:3px solid rgba(31,115,232,.35);outline-offset:-3px;}
+#services-faq .faq-answer{display:block;height:auto;max-height:none;overflow:visible;visibility:visible;opacity:1;padding:0;background:#fff;}
+#services-faq .faq-answer p{margin:0;padding:0 22px 22px;}
+#services-faq .faq-container.services-faq-enhanced .faq-answer{max-height:0;overflow:hidden;visibility:hidden;opacity:0;transition:max-height .35s ease,opacity .22s ease,visibility 0s linear .35s;}
+#services-faq .faq-container.services-faq-enhanced .faq-item.is-open .faq-answer{visibility:visible;opacity:1;transition:max-height .35s ease,opacity .22s ease,visibility 0s linear 0s;}
+#services-faq .faq-item.is-open .faq-question::after{content:"−";background:#1F73E8;color:#fff;}
+@media(max-width:900px){.services-directory-tools{grid-template-columns:1fr 1fr;}
+.services-directory-tools .btn{grid-column:1/-1;}}
+@media(max-width:760px){.services-directory-tools{grid-template-columns:1fr;padding:18px;}
+.services-directory-tools .btn{grid-column:auto;width:100%;}}
+@media(prefers-reduced-motion:reduce){.service-detail-card,#services-faq .faq-answer{transition:none;}}
+}

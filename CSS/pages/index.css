@@ -1,0 +1,14 @@
+/* Page-specific features only: index.html */
+@layer effects{
+
+.tcs-energy{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1}.tcs-energy i{position:absolute;border:1px solid #1675e838;border-radius:50%;width:600px;height:600px;right:-180px;top:-170px;animation:tcs-orbit-spin 24s linear infinite}.tcs-energy i:after{content:"";position:absolute;top:14%;left:14%;width:18px;height:18px;background:#318bee;border-radius:50%;box-shadow:0 0 30px #378fff80}.tcs-energy i:nth-child(2){width:430px;height:430px;top:-85px;right:-95px;animation-duration:17s;animation-direction:reverse}.tcs-energy i:nth-child(3){width:260px;height:260px;top:0;right:-10px;animation-duration:12s}.tcs-specialties{display:flex;align-items:center;gap:10px;margin:26px 0 0;font-size:.85rem;color:var(--muted)}.tcs-specialties strong{display:inline-block;color:var(--blue);min-width:160px}.tcs-specialties strong.is-changing{animation:tcs-label-in .55s ease both}.tcs-specialties:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 5px #1764d918}.tcs-home #final-cta{position:relative;overflow:hidden;isolation:isolate}.tcs-home #final-cta:after{content:"";position:absolute;inset:-100%;background:repeating-linear-gradient(115deg,transparent 0 90px,#ffffff08 90px 92px);animation:tcs-cta-flow 22s linear infinite;z-index:-1;pointer-events:none}@keyframes tcs-orbit-spin{to{transform:rotate(360deg)}}@keyframes tcs-label-in{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}@keyframes tcs-cta-flow{to{transform:translateX(200px)}}html:not([data-tcs-motion=on]) .tcs-energy i,html:not([data-tcs-motion=on]) .tcs-home #final-cta:after,html:not([data-tcs-motion=on]) .tcs-specialties strong{animation-play-state:paused}html.tcs-page-idle .tcs-energy i,html.tcs-page-idle .tcs-home #final-cta:after{animation-play-state:paused}@media(max-width:700px){.tcs-energy{opacity:.55}.tcs-specialties{flex-wrap:wrap;gap:8px}}@media(prefers-reduced-motion:reduce){.tcs-energy i,.tcs-home #final-cta:after,.tcs-specialties strong{animation:none!important}}
+
+.tcs-home #final-cta .home-final-project-button,
+.tcs-home #final-cta .home-final-project-button:hover,
+.tcs-home #final-cta .home-final-project-button:focus-visible{
+  background:#050505;
+  border-color:#050505;
+  color:#fff;
+}
+
+}
