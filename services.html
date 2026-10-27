@@ -4,13 +4,36 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Early resource downloads; styles apply normally and scripts execute in order. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@400;600;700;800&amp;display=swap"/>
+<link rel="preload" as="style" href="CSS/site.css?v=29c79e805c43"/>
+<link rel="preload" as="style" href="CSS/pages/services.css?v=b479f1d7b07a"/>
+<link rel="preload" as="script" href="JS/refinement.js?v=ea9358e19d00"/>
+<link rel="preload" as="script" href="JS/page-utilities.js?v=8e291ccedb07"/>
+<link rel="preload" as="script" href="JS/services.js?v=833600568d4d"/>
+
+
+
+
+
+
+
+
 <meta content="#1F73E8" name="theme-color"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
 
-<script defer="" src="JS/refinement.js"></script>
-<title>Website, Logo &amp; Print Design Services | The Creative Studio</title><meta content="Explore custom websites, logo design, business cards, vehicle magnets, yard signs, banners and marketing graphics from The Creative Studio in Indianapolis." name="description"/><meta content="index, follow, max-image-preview:large" name="robots"/><link href="https://www.the-creative-studio.com/services.html" rel="canonical"/><meta content="website" property="og:type"/><meta content="Website, Logo &amp; Print Design Services | The Creative Studio" property="og:title"/><meta content="Explore custom websites, logo design, business cards, vehicle magnets, yard signs, banners and marketing graphics from The Creative Studio in Indianapolis." property="og:description"/><meta content="https://www.the-creative-studio.com/services.html" property="og:url"/><meta content="The Creative Studio" property="og:site_name"/><meta content="https://www.the-creative-studio.com/logo.png" property="og:image"/><meta content="The Creative Studio logo" property="og:image:alt"/><meta content="summary" name="twitter:card"/><meta content="Website, Logo &amp; Print Design Services | The Creative Studio" name="twitter:title"/><meta content="Explore custom websites, logo design, business cards, vehicle magnets, yard signs, banners and marketing graphics from The Creative Studio in Indianapolis." name="twitter:description"/><meta content="https://www.the-creative-studio.com/logo.png" name="twitter:image"/><link href="assets/logo.webp" rel="icon" type="image/webp"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Website, Logo & Print Design Services | The Creative Studio", "description": "Explore custom websites, logo design, business cards, vehicle magnets, yard signs, banners and marketing graphics from The Creative Studio in Indianapolis.", "url": "https://www.the-creative-studio.com/services.html", "isPartOf": {"@id": "https://www.the-creative-studio.com/#website"}}</script><link href="CSS/site.css" rel="stylesheet"/><link href="CSS/pages/services.css" rel="stylesheet"/><script defer="" src="JS/page-utilities.js"></script></head>
+
+
+
+<title>Website, Logo &amp; Print Design Services | The Creative Studio</title><meta content="Explore custom websites, logo design, business cards, vehicle magnets, yard signs, banners and marketing graphics from The Creative Studio in Indianapolis." name="description"/><meta content="index, follow, max-image-preview:large" name="robots"/><link href="https://www.the-creative-studio.com/services.html" rel="canonical"/><meta content="website" property="og:type"/><meta content="Website, Logo &amp; Print Design Services | The Creative Studio" property="og:title"/><meta content="Explore custom websites, logo design, business cards, vehicle magnets, yard signs, banners and marketing graphics from The Creative Studio in Indianapolis." property="og:description"/><meta content="https://www.the-creative-studio.com/services.html" property="og:url"/><meta content="The Creative Studio" property="og:site_name"/><meta content="https://www.the-creative-studio.com/logo.png" property="og:image"/><meta content="The Creative Studio logo" property="og:image:alt"/><meta content="summary" name="twitter:card"/><meta content="Website, Logo &amp; Print Design Services | The Creative Studio" name="twitter:title"/><meta content="Explore custom websites, logo design, business cards, vehicle magnets, yard signs, banners and marketing graphics from The Creative Studio in Indianapolis." name="twitter:description"/><meta content="https://www.the-creative-studio.com/logo.png" name="twitter:image"/><link href="assets/logo.webp" rel="icon" type="image/webp"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Website, Logo & Print Design Services | The Creative Studio", "description": "Explore custom websites, logo design, business cards, vehicle magnets, yard signs, banners and marketing graphics from The Creative Studio in Indianapolis.", "url": "https://www.the-creative-studio.com/services.html", "isPartOf": {"@id": "https://www.the-creative-studio.com/#website"}}</script><link href="CSS/site.css?v=29c79e805c43" rel="stylesheet"/><link href="CSS/pages/services.css?v=b479f1d7b07a" rel="stylesheet"/>
+
+
+<script defer src="JS/refinement.js?v=ea9358e19d00"></script>
+<script defer src="JS/page-utilities.js?v=8e291ccedb07"></script>
+<script defer src="JS/services.js?v=833600568d4d"></script>
+</head>
 <body class="tcs-interior">
 <noscript><div class="container" style="padding:18px 0"><p style="margin:0;padding:14px;border-left:5px solid #1F73E8;background:#eef6ff">JavaScript is unavailable. All services and FAQ answers remain visible, but filtering and accordion controls are disabled.</p></div></noscript>
 <!-- ========================================= -->
@@ -939,15 +962,6 @@
 <p>
        📱 <a href="tel:+13174940879">317-494-0879</a> · Call or Text
       </p>
-<p>
-       Business Hours
-      </p>
-<p>
-       Monday–Friday
-      </p>
-<p>
-       9:00 AM – 5:00 PM
-      </p>
 <div class="social-icons">
 </div>
 </div>
@@ -979,11 +993,6 @@
 <!-- ========================================= -->
 <div aria-atomic="true" aria-live="polite" class="toast-container" id="toastContainer">
 </div>
-<script id="servicesDebugScript">
-(function(){"use strict";
-function initFilters(){const search=document.getElementById("servicesSearch"),category=document.getElementById("servicesCategory"),clear=document.getElementById("servicesClearFilters"),status=document.getElementById("servicesFilterStatus"),cards=Array.from(document.querySelectorAll("#services-directory .service-detail-card"));if(!search||!category||!clear||!status||!cards.length)return;function update(){const q=search.value.trim().toLowerCase(),c=category.value;let visible=0;cards.forEach(card=>{const show=(!q||card.textContent.toLowerCase().includes(q))&&(!c||(card.dataset.serviceCategory||"").split(/\s+/).includes(c));card.hidden=!show;if(show)visible+=1});status.textContent=`${visible} service${visible===1?"":"s"} shown.`}search.addEventListener("input",update);category.addEventListener("change",update);clear.addEventListener("click",()=>{search.value="";category.value="";update();search.focus()});update()}
-function initFAQ(){const container=document.querySelector("#services-faq .faq-container");if(!container||container.dataset.servicesFaqReady==="true")return;const records=Array.from(container.querySelectorAll(".faq-item")).map((item,index)=>{const button=item.querySelector(".faq-question"),answer=item.querySelector(".faq-answer");if(!button||!answer)return null;button.id=button.id||`servicesFaqQuestion${index+1}`;answer.id=answer.id||`servicesFaqAnswer${index+1}`;button.type="button";button.setAttribute("aria-controls",answer.id);answer.setAttribute("role","region");answer.setAttribute("aria-labelledby",button.id);return{item,button,answer}}).filter(Boolean);if(!records.length)return;function setOpen(record,open){record.item.classList.toggle("is-open",open);record.item.classList.remove("active");record.button.setAttribute("aria-expanded",String(open));record.answer.setAttribute("aria-hidden",String(!open));record.answer.style.setProperty("max-height",open?`${record.answer.scrollHeight}px`:"0px","important")}function openOnly(selected){records.forEach(record=>setOpen(record,record===selected))}container.dataset.servicesFaqReady="true";container.classList.add("services-faq-enhanced");records.forEach((record,index)=>{setOpen(record,index===0);record.button.addEventListener("click",event=>{event.preventDefault();event.stopImmediatePropagation();const isOpen=record.button.getAttribute("aria-expanded")==="true";isOpen?setOpen(record,false):openOnly(record)},true);record.button.addEventListener("keydown",event=>{const current=records.indexOf(record);let target=null;if(event.key==="ArrowDown")target=(current+1)%records.length;else if(event.key==="ArrowUp")target=(current-1+records.length)%records.length;else if(event.key==="Home")target=0;else if(event.key==="End")target=records.length-1;if(target!==null){event.preventDefault();records[target].button.focus()}})});const refresh=()=>records.forEach(record=>{if(record.button.getAttribute("aria-expanded")==="true")record.answer.style.setProperty("max-height",`${record.answer.scrollHeight}px`,"important")});window.addEventListener("resize",refresh);if("ResizeObserver" in window){const observer=new ResizeObserver(refresh);records.forEach(record=>observer.observe(record.answer))}}
-function initialize(){initFilters();initFAQ()}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",initialize,{once:true});else initialize();})();
-</script>
+
 </body>
 </html>

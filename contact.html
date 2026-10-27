@@ -4,13 +4,36 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Early resource downloads; styles apply normally and scripts execute in order. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@400;600;700;800&amp;display=swap"/>
+<link rel="preload" as="style" href="CSS/site.css?v=29c79e805c43"/>
+<link rel="preload" as="style" href="CSS/pages/contact.css?v=9a52775885fd"/>
+<link rel="preload" as="script" href="JS/refinement.js?v=ea9358e19d00"/>
+<link rel="preload" as="script" href="JS/page-utilities.js?v=8e291ccedb07"/>
+<link rel="preload" as="script" href="JS/contact.js?v=f92ccb81b498"/>
+
+
+
+
+
+
+
+
 <meta content="#1F73E8" name="theme-color"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
 
-<script defer="" src="JS/refinement.js"></script>
-<title>Contact an Indianapolis Design Studio | The Creative Studio</title><meta content="Contact The Creative Studio about website design, branding, print products or an existing project. Send your project details and preferred contact method." name="description"/><meta content="index, follow, max-image-preview:large" name="robots"/><link href="https://www.the-creative-studio.com/contact.html" rel="canonical"/><meta content="website" property="og:type"/><meta content="Contact an Indianapolis Design Studio | The Creative Studio" property="og:title"/><meta content="Contact The Creative Studio about website design, branding, print products or an existing project. Send your project details and preferred contact method." property="og:description"/><meta content="https://www.the-creative-studio.com/contact.html" property="og:url"/><meta content="The Creative Studio" property="og:site_name"/><meta content="https://www.the-creative-studio.com/logo.png" property="og:image"/><meta content="The Creative Studio logo" property="og:image:alt"/><meta content="summary" name="twitter:card"/><meta content="Contact an Indianapolis Design Studio | The Creative Studio" name="twitter:title"/><meta content="Contact The Creative Studio about website design, branding, print products or an existing project. Send your project details and preferred contact method." name="twitter:description"/><meta content="https://www.the-creative-studio.com/logo.png" name="twitter:image"/><link href="assets/logo.webp" rel="icon" type="image/webp"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Contact an Indianapolis Design Studio | The Creative Studio", "description": "Contact The Creative Studio about website design, branding, print products or an existing project. Send your project details and preferred contact method.", "url": "https://www.the-creative-studio.com/contact.html", "isPartOf": {"@id": "https://www.the-creative-studio.com/#website"}}</script><link href="CSS/site.css" rel="stylesheet"/><link href="CSS/pages/contact.css" rel="stylesheet"/><script defer="" src="JS/page-utilities.js"></script></head>
+
+
+
+<title>Contact an Indianapolis Design Studio | The Creative Studio</title><meta content="Contact The Creative Studio about website design, branding, print products or an existing project. Send your project details and preferred contact method." name="description"/><meta content="index, follow, max-image-preview:large" name="robots"/><link href="https://www.the-creative-studio.com/contact.html" rel="canonical"/><meta content="website" property="og:type"/><meta content="Contact an Indianapolis Design Studio | The Creative Studio" property="og:title"/><meta content="Contact The Creative Studio about website design, branding, print products or an existing project. Send your project details and preferred contact method." property="og:description"/><meta content="https://www.the-creative-studio.com/contact.html" property="og:url"/><meta content="The Creative Studio" property="og:site_name"/><meta content="https://www.the-creative-studio.com/logo.png" property="og:image"/><meta content="The Creative Studio logo" property="og:image:alt"/><meta content="summary" name="twitter:card"/><meta content="Contact an Indianapolis Design Studio | The Creative Studio" name="twitter:title"/><meta content="Contact The Creative Studio about website design, branding, print products or an existing project. Send your project details and preferred contact method." name="twitter:description"/><meta content="https://www.the-creative-studio.com/logo.png" name="twitter:image"/><link href="assets/logo.webp" rel="icon" type="image/webp"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Contact an Indianapolis Design Studio | The Creative Studio", "description": "Contact The Creative Studio about website design, branding, print products or an existing project. Send your project details and preferred contact method.", "url": "https://www.the-creative-studio.com/contact.html", "isPartOf": {"@id": "https://www.the-creative-studio.com/#website"}}</script><link href="CSS/site.css?v=29c79e805c43" rel="stylesheet"/><link href="CSS/pages/contact.css?v=9a52775885fd" rel="stylesheet"/>
+
+
+<script defer src="JS/refinement.js?v=ea9358e19d00"></script>
+<script defer src="JS/page-utilities.js?v=8e291ccedb07"></script>
+<script defer src="JS/contact.js?v=f92ccb81b498"></script>
+</head>
 <body class="tcs-interior">
 <!-- ========================================= -->
 <!-- LOADER -->
@@ -61,8 +84,9 @@
       </p>
 </div>
 <div class="contact-wrapper">
-<form action="mailto:jeremy@the-creative-studio.com" class="contact-form" data-email-recipient="jeremy@the-creative-studio.com" id="contactForm" method="get" novalidate="">
+<form action="https://formsubmit.co/ajax/jeremy@the-creative-studio.com" class="contact-form" data-email-recipient="jeremy@the-creative-studio.com" id="contactForm" method="post" novalidate="">
 <input id="contactFormStartedAt" name="contactFormStartedAt" type="hidden" value=""/>
+<input aria-hidden="true" autocomplete="off" hidden name="_honey" tabindex="-1" type="text" value=""/>
 <div aria-hidden="true" class="form-honeypot">
 <label for="contactWebsite">Leave this field empty</label>
 <input autocomplete="off" id="contactWebsite" name="contactWebsite" tabindex="-1" type="text"/>
@@ -201,7 +225,7 @@
 </label>
 <button class="btn primary" id="contactSubmitButton" type="submit">
 <span aria-hidden="true" class="contact-submit-icon">✉</span>
-<span id="contactSubmitLabel">Open Email Application</span>
+<span id="contactSubmitLabel">Send Message</span>
 </button>
 <p aria-live="polite" class="form-status" id="contactFormStatus" role="status">
 </p>
@@ -252,19 +276,6 @@
          </p>
 </article>
 </div>
-<div class="contact-hours">
-<h3>
-         Business Hours
-        </h3>
-<ul>
-<li>
-          Monday–Friday: 9:00 AM–5:00 PM
-         </li>
-<li>
-          Saturday–Sunday: By appointment
-         </li>
-</ul>
-</div>
 </aside>
 </div>
 <div class="contact-note">
@@ -305,7 +316,7 @@
 </div></details>
 <details class="tcs-faq"><summary>How quickly will I receive a response?</summary><div class="tcs-faq-answer">
 <p>
-         Messages are reviewed during normal business hours.
+         We review each message and respond as soon as possible.
                         Complex project or production questions may require
                         additional review before a complete response is provided.
         </p>
@@ -467,15 +478,6 @@
 <p>
        📱 <a href="tel:+13174940879">317-494-0879</a> · Call or Text
       </p>
-<p>
-       Business Hours
-      </p>
-<p>
-       Monday–Friday
-      </p>
-<p>
-       9:00 AM – 5:00 PM
-      </p>
 <div class="social-icons">
 </div>
 </div>
@@ -507,198 +509,6 @@
 <!-- ========================================= -->
 <div aria-atomic="true" aria-live="polite" class="toast-container" id="toastContainer">
 </div>
-<script>
-   document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("contactForm");
-    const status = document.getElementById("contactFormStatus");
-    const submitButton = document.getElementById("contactSubmitButton");
-    const submitLabel = document.getElementById("contactSubmitLabel");
-    const startedAt = document.getElementById("contactFormStartedAt");
-    const preference = document.getElementById("contactPreference");
-    const phone = document.getElementById("contactPhone");
 
-    if (!form || !status || !submitButton || !submitLabel) {
-        return;
-    }
-
-    if (startedAt) {
-        startedAt.value = String(Date.now());
-    }
-
-    function updatePhoneRequirement() {
-        if (!preference || !phone) {
-            return;
-        }
-
-        const needsPhone =
-            preference.value === "Phone Call" ||
-            preference.value === "Text Message";
-
-        phone.required = needsPhone;
-        phone.setAttribute("aria-required", String(needsPhone));
-    }
-
-    if (preference) {
-        preference.addEventListener("change", updatePhoneRequirement);
-        updatePhoneRequirement();
-    }
-
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
-        updatePhoneRequirement();
-
-        if (!form.checkValidity()) {
-            status.className = "form-status error";
-            status.textContent =
-                "Please complete all required fields correctly. A phone number is required when phone call or text message is selected.";
-            form.reportValidity();
-            return;
-        }
-
-        const value = (id) => {
-            const field = document.getElementById(id);
-            return field ? String(field.value || "").trim() : "";
-        };
-        const recipient = form.dataset.emailRecipient || "jeremy@the-creative-studio.com";
-        const subject = value("contactSubject") || "Creative Studio Website Message";
-        const body = [
-            "NEW WEBSITE MESSAGE",
-            "The Creative Studio",
-            "",
-            `Name: ${value("contactName")}`,
-            `Business: ${value("contactBusiness") || "Not provided"}`,
-            `Email: ${value("contactEmail")}`,
-            `Phone: ${value("contactPhone") || "Not provided"}`,
-            `Preferred Contact Method: ${value("contactPreference")}`,
-            `Topic: ${value("contactTopic")}`,
-            `Related Order or Project: ${value("contactOrderNumber") || "Not provided"}`,
-            "",
-            "Message:",
-            value("contactMessage")
-        ].join("\n");
-
-        status.className = "form-status success";
-        status.textContent = "Your email application is opening. Review the completed message, then press Send.";
-        submitLabel.textContent = "Opening Email…";
-        window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        window.setTimeout(() => {
-            submitLabel.textContent = "Open Email Application";
-        }, 1200);
-    });
-});
-  </script>
-<script id="contactFaqAccordionScript">(function () {
-    "use strict";
-
-    function initContactFAQ() {
-        const container = document.querySelector("#faq .faq-container");
-
-        if (!container || container.dataset.contactFaqReady === "true") {
-            return;
-        }
-
-        const records = Array.from(
-            container.querySelectorAll(".faq-item")
-        ).map(item => {
-            const button = item.querySelector(".faq-question");
-            const answer = item.querySelector(".faq-answer");
-
-            return button && answer ? { item, button, answer } : null;
-        }).filter(Boolean);
-
-        if (!records.length) {
-            return;
-        }
-
-        function setOpen(record, open) {
-            record.item.classList.toggle("is-open", open);
-            record.item.classList.remove("active");
-            record.button.setAttribute(
-                "aria-expanded",
-                open ? "true" : "false"
-            );
-            record.answer.setAttribute(
-                "aria-hidden",
-                open ? "false" : "true"
-            );
-            record.answer.style.setProperty(
-                "max-height",
-                open ? record.answer.scrollHeight + "px" : "0px",
-                "important"
-            );
-        }
-
-        container.dataset.contactFaqReady = "true";
-        container.classList.add("contact-faq-enhanced");
-
-        records.forEach((record, index) => {
-            setOpen(record, index === 0);
-
-            record.button.addEventListener(
-                "click",
-                event => {
-                    event.preventDefault();
-                    event.stopImmediatePropagation();
-
-                    const willOpen =
-                        record.button.getAttribute("aria-expanded") !== "true";
-
-                    records.forEach(other => {
-                        if (other !== record) {
-                            setOpen(other, false);
-                        }
-                    });
-
-                    setOpen(record, willOpen);
-                },
-                true
-            );
-
-            record.button.addEventListener(
-                "keydown",
-                event => {
-                    const current = records.indexOf(record);
-                    let next = null;
-
-                    if (event.key === "ArrowDown") {
-                        next = (current + 1) % records.length;
-                    } else if (event.key === "ArrowUp") {
-                        next = (current - 1 + records.length) % records.length;
-                    } else if (event.key === "Home") {
-                        next = 0;
-                    } else if (event.key === "End") {
-                        next = records.length - 1;
-                    }
-
-                    if (next !== null) {
-                        event.preventDefault();
-                        event.stopImmediatePropagation();
-                        records[next].button.focus();
-                    }
-                },
-                true
-            );
-        });
-
-        window.addEventListener("resize", () => {
-            records.forEach(record => {
-                if (record.button.getAttribute("aria-expanded") === "true") {
-                    record.answer.style.setProperty(
-                        "max-height",
-                        record.answer.scrollHeight + "px",
-                        "important"
-                    );
-                }
-            });
-        });
-    }
-
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", initContactFAQ, {
-            once: true
-        });
-    } else {
-        initContactFAQ();
-    }
-})();</script></body>
+</body>
 </html>

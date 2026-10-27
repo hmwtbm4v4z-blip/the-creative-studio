@@ -4,13 +4,36 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Early resource downloads; styles apply normally and scripts execute in order. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@400;600;700;800&amp;display=swap"/>
+<link rel="preload" as="style" href="CSS/site.css?v=29c79e805c43"/>
+<link rel="preload" as="style" href="CSS/pages/pricing.css?v=b75fb56a7b32"/>
+<link rel="preload" as="script" href="JS/refinement.js?v=ea9358e19d00"/>
+<link rel="preload" as="script" href="JS/page-utilities.js?v=8e291ccedb07"/>
+<link rel="preload" as="script" href="JS/pricing.js?v=ae3207fb0c4b"/>
+
+
+
+
+
+
+
+
 <meta content="#1F73E8" name="theme-color"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
 
-<script defer="" src="JS/refinement.js"></script>
-<title>Design Pricing &amp; Packages | The Creative Studio</title><meta content="Explore pricing for website design, logos, business cards and print graphics. Confirm project scope, quantities and delivery details with a custom estimate." name="description"/><meta content="index, follow, max-image-preview:large" name="robots"/><link href="https://www.the-creative-studio.com/pricing.html" rel="canonical"/><meta content="website" property="og:type"/><meta content="Design Pricing &amp; Packages | The Creative Studio" property="og:title"/><meta content="Explore pricing for website design, logos, business cards and print graphics. Confirm project scope, quantities and delivery details with a custom estimate." property="og:description"/><meta content="https://www.the-creative-studio.com/pricing.html" property="og:url"/><meta content="The Creative Studio" property="og:site_name"/><meta content="https://www.the-creative-studio.com/logo.png" property="og:image"/><meta content="The Creative Studio logo" property="og:image:alt"/><meta content="summary" name="twitter:card"/><meta content="Design Pricing &amp; Packages | The Creative Studio" name="twitter:title"/><meta content="Explore pricing for website design, logos, business cards and print graphics. Confirm project scope, quantities and delivery details with a custom estimate." name="twitter:description"/><meta content="https://www.the-creative-studio.com/logo.png" name="twitter:image"/><link href="assets/logo.webp" rel="icon" type="image/webp"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Design Pricing & Packages | The Creative Studio", "description": "Explore pricing for website design, logos, business cards and print graphics. Confirm project scope, quantities and delivery details with a custom estimate.", "url": "https://www.the-creative-studio.com/pricing.html", "isPartOf": {"@id": "https://www.the-creative-studio.com/#website"}}</script><link href="CSS/site.css" rel="stylesheet"/><link href="CSS/pages/pricing.css" rel="stylesheet"/><script defer="" src="JS/page-utilities.js"></script></head>
+
+
+
+<title>Design Pricing &amp; Packages | The Creative Studio</title><meta content="Explore pricing for website design, logos, business cards and print graphics. Confirm project scope, quantities and delivery details with a custom estimate." name="description"/><meta content="index, follow, max-image-preview:large" name="robots"/><link href="https://www.the-creative-studio.com/pricing.html" rel="canonical"/><meta content="website" property="og:type"/><meta content="Design Pricing &amp; Packages | The Creative Studio" property="og:title"/><meta content="Explore pricing for website design, logos, business cards and print graphics. Confirm project scope, quantities and delivery details with a custom estimate." property="og:description"/><meta content="https://www.the-creative-studio.com/pricing.html" property="og:url"/><meta content="The Creative Studio" property="og:site_name"/><meta content="https://www.the-creative-studio.com/logo.png" property="og:image"/><meta content="The Creative Studio logo" property="og:image:alt"/><meta content="summary" name="twitter:card"/><meta content="Design Pricing &amp; Packages | The Creative Studio" name="twitter:title"/><meta content="Explore pricing for website design, logos, business cards and print graphics. Confirm project scope, quantities and delivery details with a custom estimate." name="twitter:description"/><meta content="https://www.the-creative-studio.com/logo.png" name="twitter:image"/><link href="assets/logo.webp" rel="icon" type="image/webp"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Design Pricing & Packages | The Creative Studio", "description": "Explore pricing for website design, logos, business cards and print graphics. Confirm project scope, quantities and delivery details with a custom estimate.", "url": "https://www.the-creative-studio.com/pricing.html", "isPartOf": {"@id": "https://www.the-creative-studio.com/#website"}}</script><link href="CSS/site.css?v=29c79e805c43" rel="stylesheet"/><link href="CSS/pages/pricing.css?v=b75fb56a7b32" rel="stylesheet"/>
+
+
+<script defer src="JS/refinement.js?v=ea9358e19d00"></script>
+<script defer src="JS/page-utilities.js?v=8e291ccedb07"></script>
+<script defer src="JS/pricing.js?v=ae3207fb0c4b"></script>
+</head>
 <body class="tcs-interior">
 <noscript>
    JavaScript is recommended for navigation, FAQ controls, and interactive features. The pricing information remains available below.
@@ -844,15 +867,6 @@
 <p>
        📱 <a href="tel:+13174940879">317-494-0879</a> · Call or Text
       </p>
-<p>
-       Business Hours
-      </p>
-<p>
-       Monday–Friday
-      </p>
-<p>
-       9:00 AM – 5:00 PM
-      </p>
 <div class="social-icons">
 </div>
 </div>
@@ -879,164 +893,5 @@
 </div>
 </div>
 </footer><div aria-atomic="true" aria-live="polite" class="toast-container" id="toastContainer"></div>
-<script id="pricingFaqAccordionScript">(function () {
-    "use strict";
-
-    function initializePricingFAQ() {
-        const container = document.querySelector(
-            "#pricing-faq .faq-container"
-        );
-
-        if (
-            !container ||
-            container.dataset.pricingFaqReady === "true"
-        ) {
-            return;
-        }
-
-        const records = Array.from(
-            container.querySelectorAll(".faq-item")
-        ).map(item => {
-            const button =
-                item.querySelector(".faq-question");
-            const answer =
-                item.querySelector(".faq-answer");
-
-            return button && answer
-                ? { item, button, answer }
-                : null;
-        }).filter(Boolean);
-
-        if (!records.length) {
-            return;
-        }
-
-        function setOpen(record, open) {
-            record.item.classList.toggle(
-                "is-open",
-                open
-            );
-
-            record.item.classList.remove("active");
-
-            record.button.setAttribute(
-                "aria-expanded",
-                open ? "true" : "false"
-            );
-
-            record.answer.setAttribute(
-                "aria-hidden",
-                open ? "false" : "true"
-            );
-
-            record.answer.style.setProperty(
-                "max-height",
-                open
-                    ? record.answer.scrollHeight + "px"
-                    : "0px",
-                "important"
-            );
-        }
-
-        container.dataset.pricingFaqReady = "true";
-        container.classList.add(
-            "pricing-faq-enhanced"
-        );
-
-        records.forEach((record, index) => {
-            setOpen(record, index === 0);
-
-            record.button.addEventListener(
-                "click",
-                event => {
-                    event.preventDefault();
-                    event.stopImmediatePropagation();
-
-                    const shouldOpen =
-                        record.button.getAttribute(
-                            "aria-expanded"
-                        ) !== "true";
-
-                    records.forEach(other => {
-                        if (other !== record) {
-                            setOpen(other, false);
-                        }
-                    });
-
-                    setOpen(record, shouldOpen);
-                },
-                true
-            );
-
-            record.button.addEventListener(
-                "keydown",
-                event => {
-                    const current =
-                        records.indexOf(record);
-                    let next = null;
-
-                    if (event.key === "ArrowDown") {
-                        next =
-                            (current + 1) %
-                            records.length;
-                    }
-                    else if (event.key === "ArrowUp") {
-                        next =
-                            (
-                                current -
-                                1 +
-                                records.length
-                            ) %
-                            records.length;
-                    }
-                    else if (event.key === "Home") {
-                        next = 0;
-                    }
-                    else if (event.key === "End") {
-                        next =
-                            records.length - 1;
-                    }
-
-                    if (next !== null) {
-                        event.preventDefault();
-                        event.stopImmediatePropagation();
-                        records[next].button.focus();
-                    }
-                },
-                true
-            );
-        });
-
-        window.addEventListener(
-            "resize",
-            () => {
-                records.forEach(record => {
-                    if (
-                        record.button.getAttribute(
-                            "aria-expanded"
-                        ) === "true"
-                    ) {
-                        record.answer.style.setProperty(
-                            "max-height",
-                            record.answer.scrollHeight +
-                                "px",
-                            "important"
-                        );
-                    }
-                });
-            }
-        );
-    }
-
-    if (document.readyState === "loading") {
-        document.addEventListener(
-            "DOMContentLoaded",
-            initializePricingFAQ,
-            { once: true }
-        );
-    }
-    else {
-        initializePricingFAQ();
-    }
-})();</script></body>
+</body>
 </html>
