@@ -342,11 +342,12 @@
       payload.set('_captcha', 'false');
       payload.set('_template', 'table');
       payload.set('_honey', '');
+      if (/^https?:$/.test(window.location.protocol)) payload.set('_url', window.location.href);
       setStatus('success', 'Sending your request directly to The Creative Studio…');
       const submitButton = form.querySelector('button[type="submit"]');
       if (submitButton) submitButton.disabled = true;
       saveDraft(false);
-      fetch(form.action, { method:'POST', body:payload, headers:{Accept:'application/json'} })
+      fetch(form.action, { method:'POST', mode:'cors', body:payload, headers:{Accept:'application/json'} })
         .then((response) => response.json().catch(() => ({})).then((result) => ({response, result})))
         .then(({response, result}) => {
           if (!response.ok || result.success !== true && result.success !== 'true') throw new Error(result.message || 'Send failed');
@@ -354,7 +355,12 @@
           if (autosaveStatus) autosaveStatus.textContent = 'Request sent';
           setStatus('success', 'Request sent successfully. Jeremy will follow up at the email or phone number you provided.');
         })
-        .catch(() => setStatus('error', 'The request could not be sent. Please try again or call 317-494-0879.'))
+        .catch((error) => {
+          const message = window.location.protocol === 'file:'
+            ? 'This form needs to be opened from the live website, not directly from a downloaded HTML file.'
+            : (error?.message ? `The request could not be sent: ${error.message}. Please try again or call 317-494-0879.` : 'The request could not be sent. Please try again or call 317-494-0879.');
+          setStatus('error', message);
+        })
         .finally(() => { if (submitButton) submitButton.disabled = false; });
     });
 

@@ -75,11 +75,12 @@ document.addEventListener("DOMContentLoaded", function () {
         payload.set("_captcha", "false");
         payload.set("_template", "table");
         payload.set("_honey", "");
+        if (/^https?:$/.test(window.location.protocol)) payload.set("_url", window.location.href);
         status.className = "form-status success";
         status.textContent = "Sending your message directly to The Creative Studio…";
         submitLabel.textContent = "Sending…";
         submitButton.disabled = true;
-        fetch(form.action, { method:"POST", body:payload, headers:{Accept:"application/json"} })
+        fetch(form.action, { method:"POST", mode:"cors", body:payload, headers:{Accept:"application/json"} })
             .then((response) => response.json().catch(() => ({})).then((result) => ({response, result})))
             .then(({response, result}) => {
                 if (!response.ok || result.success !== true && result.success !== "true") throw new Error(result.message || "Send failed");
@@ -87,9 +88,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 status.textContent = "Message sent successfully. Jeremy will get back to you soon.";
                 submitLabel.textContent = "Message Sent";
             })
-            .catch(() => {
+            .catch((error) => {
                 status.className = "form-status error";
-                status.textContent = "The message could not be sent. Please try again or call 317-494-0879.";
+                status.textContent = window.location.protocol === "file:"
+                    ? "This form needs to be opened from the live website, not directly from a downloaded HTML file."
+                    : (error?.message ? `The message could not be sent: ${error.message}. Please try again or call 317-494-0879.` : "The message could not be sent. Please try again or call 317-494-0879.");
                 submitLabel.textContent = "Send Message";
             })
             .finally(() => { submitButton.disabled = false; });
