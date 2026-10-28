@@ -89,6 +89,29 @@
       status.textContent = '';
     }
 
+    function syncBusinessCardEntries() {
+      const details = document.getElementById('businessCardDetails');
+      const versionInput = document.getElementById('businessCardVersions');
+      const entries = document.getElementById('businessCardEntries');
+      if (!details || !versionInput || !entries) return;
+      if (entries.dataset.ready !== 'true') {
+        for (let index = 1; index <= 25; index += 1) {
+          const entry = document.createElement('fieldset');
+          entry.className = 'business-card-version';
+          entry.innerHTML = `<legend>Card ${index}</legend><div class="business-card-version-grid"><label>Name<input name="business-card-name-${index}" type="text" placeholder="Full name"></label><label>Position / Title<input name="business-card-position-${index}" type="text" placeholder="Position or title"></label><label>Phone<input name="business-card-phone-${index}" type="tel" placeholder="Phone number"></label><label>Email<input name="business-card-email-${index}" type="email" placeholder="Email address"></label><label class="business-card-version-wide">Other information<textarea name="business-card-other-${index}" rows="2" placeholder="Website, QR code, services, social handle, or other details"></textarea></label></div>`;
+          entries.appendChild(entry);
+        }
+        entries.dataset.ready = 'true';
+      }
+      const count = Math.min(25, Math.max(1, Number.parseInt(versionInput.value, 10) || 1));
+      versionInput.value = String(count);
+      Array.from(entries.children).forEach((entry, index) => {
+        const active = index < count && selectedPrimaryValue() === 'business-cards';
+        entry.hidden = !active;
+        entry.querySelectorAll('input, textarea').forEach((field) => { field.disabled = !active; });
+      });
+    }
+
     function showPanel() {
       const value = selectedPrimaryValue();
       panels.forEach((panel) => {
@@ -102,17 +125,30 @@
         checkbox.disabled = duplicate;
       });
       const businessPanel = form.querySelector('[data-service-panel="business-cards"]');
+      const cardQuantity = form.querySelector('#cardQuantity');
+      if (cardQuantity && cardQuantity.dataset.quantityOptionsReady !== 'true') {
+        const quantities = [25, 50, 75, 100, 125, 150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800, 900, 1000, 1250, 1500, 2000, 2500, 3000, 5000, 'Custom quantity'];
+        cardQuantity.innerHTML = '<option value="">Choose one</option>';
+        quantities.forEach((quantity) => {
+          const option = document.createElement('option');
+          option.value = String(quantity);
+          option.textContent = typeof quantity === 'number' ? quantity.toLocaleString() : quantity;
+          cardQuantity.appendChild(option);
+        });
+        cardQuantity.dataset.quantityOptionsReady = 'true';
+      }
       if (businessPanel && !document.getElementById('businessCardDetails')) {
         const details = document.createElement('div');
         details.className = 'new-form-group full business-card-details';
         details.id = 'businessCardDetails';
-        details.innerHTML = '<label for="businessCardVersions">Additional Business Card Versions (up to 25)</label><input id="businessCardVersions" max="25" min="1" name="additional-business-card-versions" type="number" value="1"><p class="field-help">Use this for unique employee or team cards. Include each person’s exact name, title, phone, email, and other card-specific details in Project Goals.</p>';
+        details.innerHTML = '<label for="businessCardVersions">Number of Different Business Cards (up to 25)</label><input id="businessCardVersions" max="25" min="1" name="additional-business-card-versions" type="number" value="1"><p class="field-help">Choose how many different cards you need, then enter each person’s name, position, contact information, and other card details below.</p><div aria-live="polite" class="business-card-entries" id="businessCardEntries"></div>';
         businessPanel.appendChild(details);
       }
       const businessDetails = document.getElementById('businessCardDetails');
       businessDetails?.querySelectorAll('input, select, textarea').forEach((field) => {
         field.disabled = value !== 'business-cards';
       });
+      syncBusinessCardEntries();
     }
 
     function updatePhoneRequirement() {
@@ -298,8 +334,8 @@
     }
 
     primaryRadios.forEach((radio) => radio.addEventListener('change', () => { showPanel(); updateSummary(); scheduleSave(); }));
-    form.addEventListener('input', () => { updateSummary(); updatePhoneRequirement(); scheduleSave(); });
-    form.addEventListener('change', () => { updateSummary(); updatePhoneRequirement(); scheduleSave(); });
+    form.addEventListener('input', () => { syncBusinessCardEntries(); updateSummary(); updatePhoneRequirement(); scheduleSave(); });
+    form.addEventListener('change', () => { syncBusinessCardEntries(); updateSummary(); updatePhoneRequirement(); scheduleSave(); });
     document.getElementById('saveDraftButton').addEventListener('click', () => saveDraft(true));
     bindColorBuilder('customColorPicker', 'customColorHex', 'addPreferredColor', 'preferred');
     bindColorBuilder('avoidColorPicker', 'avoidColorHex', 'addAvoidColor', 'avoid');
