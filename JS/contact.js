@@ -71,6 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
         payload.set("form-type", "contact-message");
         payload.set("email-subject", subject);
         payload.set("email-body", body);
+        payload.set("_replyto", value("contactEmail"));
         payload.set("_subject", subject);
         payload.set("_captcha", "false");
         payload.set("_template", "table");
