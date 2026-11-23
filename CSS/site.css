@@ -1182,6 +1182,11 @@ img{height:auto}
 @layer shell{
 .container{width:min(1180px,calc(100% - 48px));margin:auto}
 .tcs-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+.tcs-pay-ribbon{display:flex;justify-content:center;align-items:center;min-height:42px;padding:6px 16px;background:#0d1b32;color:#fff;border-bottom:1px solid #28466d}
+.tcs-pay-ribbon a{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:30px;padding:5px 14px;border:1px solid #6da9ed;border-radius:999px;background:#17365f;color:#fff;font-size:.78rem;font-weight:750;letter-spacing:.02em;box-shadow:0 5px 18px #07122566;transition:background .2s ease,transform .2s ease,box-shadow .2s ease}
+.tcs-pay-ribbon a:hover,.tcs-pay-ribbon a:focus-visible{background:#1f73e8;transform:translateY(-1px);box-shadow:0 7px 22px #07122599}
+.tcs-pay-label{white-space:nowrap}
+.tcs-pay-note{color:#cfe5ff;font-size:.72rem;font-weight:500}
 .tcs-nav{width:min(1300px,calc(100% - 40px));min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:20px;margin:auto}
 .tcs-brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .tcs-brand img{width:58px;height:58px;object-fit:contain}
@@ -1236,7 +1241,7 @@ img{height:auto}
 @media(max-width:1000px){.tcs-nav{min-height:76px}
 .tcs-brand img{width:48px;height:48px}
 .tcs-nav-enhanced .tcs-menu{display:block}
-.tcs-nav-enhanced .tcs-links{display:none;position:absolute;top:76px;left:0;right:0;max-height:calc(100vh - 76px);overflow:auto;background:white;padding:22px;border-bottom:1px solid var(--line)}
+.tcs-nav-enhanced .tcs-links{display:none;position:absolute;top:118px;left:0;right:0;max-height:calc(100vh - 118px);overflow:auto;background:white;padding:22px;border-bottom:1px solid var(--line)}
 .tcs-nav-enhanced .tcs-links.tcs-open{display:block}
 .tcs-links a{font-size:.9rem}
 .tcs-submenu-toggle{float:right}
@@ -1256,6 +1261,7 @@ html:not(.tcs-nav-enhanced) .tcs-links{flex-wrap:wrap}}
 @media(max-width:380px){.footer-grid{grid-template-columns:minmax(0,1fr)}
 .tcs-brand img{width:40px;height:40px}
 .tcs-brand strong{font-size:.85rem}}
+@media(max-width:520px){.tcs-pay-ribbon{min-height:40px;padding:5px 10px}.tcs-pay-ribbon a{width:100%;max-width:290px}.tcs-pay-note{display:none}}
 .tcs-interior{background:#fff;color:var(--ink);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.7}
 .tcs-interior main h1,.tcs-interior main h2,.tcs-interior main h3{font-family:Poppins,Inter,Arial,sans-serif;letter-spacing:-.04em;line-height:1.16}
 .tcs-interior main>[id$="-hero"]{padding:76px 0;background:linear-gradient(130deg,#f3f8ff,#fff 65%);color:var(--ink);text-align:center;min-height:0}
@@ -1357,5 +1363,5 @@ body.tcs-interior{--primary:var(--blue);--dark:var(--ink);--gray:var(--muted);--
 .tcs-table-scroll{max-width:100%;overflow-x:auto;overscroll-behavior-x:contain}
 .tcs-header{z-index:1000}
 .tcs-submenu{max-height:min(70vh,600px);overflow-y:auto}
-@media(max-width:1000px){.tcs-nav-enhanced .tcs-links{max-height:calc(100dvh - 76px);overscroll-behavior:contain}.tcs-submenu{max-height:none}}
+@media(max-width:1000px){.tcs-nav-enhanced .tcs-links{max-height:calc(100dvh - 118px);overscroll-behavior:contain}.tcs-submenu{max-height:none}}
 }

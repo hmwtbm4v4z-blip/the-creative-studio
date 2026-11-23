@@ -16,7 +16,7 @@ if (!empty($_POST['contactWebsite'])) {
     exit;
 }
 
-$recipient = 'jeremy@the-creative-studio.com';
+$recipient = 'info@the-creative-studio.com';
 $subject = trim((string)($_POST['email-subject'] ?? 'New Creative Studio website message'));
 $subject = preg_replace('/[\r\n]+/', ' ', $subject) ?: 'New Creative Studio website message';
 $subject = mb_substr($subject, 0, 180);
