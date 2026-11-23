@@ -89,30 +89,82 @@
       status.textContent = '';
     }
 
+    function createBusinessCardDetails() {
+      const businessPanel = form.querySelector('[data-service-panel="business-cards"]');
+      if (!businessPanel || document.getElementById('businessCardDetails')) return;
+
+      const details = document.createElement('div');
+      details.className = 'business-card-details full';
+      details.id = 'businessCardDetails';
+      details.innerHTML = `
+        <div class="new-form-group full">
+          <label for="businessCardVersions">Number of Business Cards (up to 25 different cards)</label>
+          <input id="businessCardVersions" max="25" min="1" name="business-card-count" type="number" value="1" inputmode="numeric">
+          <p class="field-help">Choose how many unique card versions you need. Add the name, title, contact details, and other information for each version below.</p>
+        </div>
+        <fieldset class="business-card-display full">
+          <legend>Display on the business card</legend>
+          <div class="new-choice-grid">
+            <label class="new-choice"><input id="businessCardWebsite" name="business-card-display-website" type="checkbox" value="Display website"><span>Display website</span></label>
+            <label class="new-choice"><input id="businessCardQr" name="business-card-display-qr-code" type="checkbox" value="Display QR code"><span>Display QR code</span></label>
+          </div>
+        </fieldset>
+        <div class="business-card-detail-list full" id="businessCardDetailList" aria-live="polite"></div>`;
+      businessPanel.appendChild(details);
+
+      const count = details.querySelector('#businessCardVersions');
+      count.addEventListener('input', renderBusinessCardSlots);
+      renderBusinessCardSlots();
+    }
+
+    function renderBusinessCardSlots() {
+      const countField = document.getElementById('businessCardVersions');
+      const list = document.getElementById('businessCardDetailList');
+      if (!countField || !list) return;
+      const count = Math.min(25, Math.max(1, Number.parseInt(countField.value, 10) || 1));
+      countField.value = String(count);
+
+      const oldValues = new Map();
+      list.querySelectorAll('input, textarea').forEach((field) => oldValues.set(field.name, field.value));
+      list.innerHTML = '';
+      for (let index = 1; index <= count; index += 1) {
+        const card = document.createElement('section');
+        card.className = 'business-card-detail-card';
+        card.innerHTML = `
+          <h5>Business Card ${index}</h5>
+          <div class="business-card-detail-grid">
+            <label>Name<input name="business-card-${index}-name" type="text" placeholder="Full name"></label>
+            <label>Position / Title<input name="business-card-${index}-position" type="text" placeholder="Position or title"></label>
+            <label>Phone<input name="business-card-${index}-phone" type="tel" placeholder="Phone number"></label>
+            <label>Email<input name="business-card-${index}-email" type="email" placeholder="Email address"></label>
+            <label class="full">Other information<textarea name="business-card-${index}-other" rows="2" placeholder="Website, services, social handles, tagline, address, or other details"></textarea></label>
+          </div>`;
+        list.appendChild(card);
+        card.querySelectorAll('input, textarea').forEach((field) => {
+          if (oldValues.has(field.name)) field.value = oldValues.get(field.name);
+        });
+      }
+    }
+
     function showPanel() {
       const value = selectedPrimaryValue();
-      panels.forEach((panel) => {
-        const active = panel.dataset.servicePanel === value;
-        panel.classList.toggle('active', active);
-        panel.querySelectorAll('input, select, textarea').forEach((field) => { field.disabled = !active; });
-      });
       additionalChecks.forEach((checkbox) => {
         const duplicate = checkbox.dataset.serviceValue === value;
         if (duplicate) checkbox.checked = false;
         checkbox.disabled = duplicate;
       });
-      const businessPanel = form.querySelector('[data-service-panel="business-cards"]');
-      if (businessPanel && !document.getElementById('businessCardDetails')) {
-        const details = document.createElement('div');
-        details.className = 'new-form-group full business-card-details';
-        details.id = 'businessCardDetails';
-        details.innerHTML = '<label for="businessCardVersions">Additional Business Card Versions (up to 25)</label><input id="businessCardVersions" max="25" min="1" name="additional-business-card-versions" type="number" value="1"><p class="field-help">Use this for unique employee or team cards. Include each person’s exact name, title, phone, email, and other card-specific details in Project Goals.</p>';
-        businessPanel.appendChild(details);
-      }
+      const businessAdditional = additionalChecks.some((checkbox) => checkbox.dataset.serviceValue === 'business-cards' && checkbox.checked);
+      panels.forEach((panel) => {
+        const active = panel.dataset.servicePanel === value || (panel.dataset.servicePanel === 'business-cards' && businessAdditional);
+        panel.classList.toggle('active', active);
+        panel.querySelectorAll('input, select, textarea').forEach((field) => { field.disabled = !active; });
+      });
+      createBusinessCardDetails();
       const businessDetails = document.getElementById('businessCardDetails');
       businessDetails?.querySelectorAll('input, select, textarea').forEach((field) => {
-        field.disabled = value !== 'business-cards';
+        field.disabled = !(value === 'business-cards' || businessAdditional);
       });
+      renderBusinessCardSlots();
     }
 
     function updatePhoneRequirement() {
@@ -299,7 +351,7 @@
 
     primaryRadios.forEach((radio) => radio.addEventListener('change', () => { showPanel(); updateSummary(); scheduleSave(); }));
     form.addEventListener('input', () => { updateSummary(); updatePhoneRequirement(); scheduleSave(); });
-    form.addEventListener('change', () => { updateSummary(); updatePhoneRequirement(); scheduleSave(); });
+    form.addEventListener('change', () => { showPanel(); updateSummary(); updatePhoneRequirement(); scheduleSave(); });
     document.getElementById('saveDraftButton').addEventListener('click', () => saveDraft(true));
     bindColorBuilder('customColorPicker', 'customColorHex', 'addPreferredColor', 'preferred');
     bindColorBuilder('avoidColorPicker', 'avoidColorHex', 'addAvoidColor', 'avoid');

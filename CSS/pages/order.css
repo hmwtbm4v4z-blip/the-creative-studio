@@ -218,6 +218,19 @@ noscript{display: block;padding: 18px;background: #fff1d6;color: #714d00;font-we
 .new-summary-next li+li{margin-top:7px;}
 .new-summary-help{margin:22px 0 0;padding:14px;border-radius:11px;background:#eef6ff;color:#40536b;font-size:.92rem;}
 .new-summary-help a{font-weight:750;overflow-wrap:anywhere;}
+.new-dynamic-panel[data-service-panel="business-cards"] .new-form-group:has(>#employees){display:none!important;}
+.business-card-details{display:grid;grid-column:1/-1;gap:21px;margin-top:4px;padding-top:4px;}
+.business-card-display{grid-column:1/-1;margin:0;padding:0;border:0;}
+.business-card-display legend{margin-bottom:10px;font-weight:750;color:#15273e;}
+.business-card-detail-list{display:grid;gap:14px;grid-column:1/-1;}
+.business-card-detail-card{padding:18px;border:1px solid #d8e6f7;border-radius:15px;background:#f8fbff;}
+.business-card-detail-card h5{margin:0 0 13px;color:#173f75;font-size:1rem;}
+.business-card-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;}
+.business-card-detail-grid label{display:grid;gap:6px;color:#31465f;font-size:.84rem;font-weight:700;}
+.business-card-detail-grid label.full{grid-column:1/-1;}
+.business-card-detail-grid input,.business-card-detail-grid textarea{width:100%;padding:11px 12px;border:1px solid #cfd9ea;border-radius:10px;background:#fff;color:#17263a;font:inherit;font-weight:400;}
+.business-card-detail-grid textarea{resize:vertical;}
+@media(max-width:560px){.business-card-detail-grid{grid-template-columns:1fr;}.business-card-detail-grid label.full{grid-column:auto;}}
 @media(max-width:1180px){.primary-service-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
 .palette-grid{grid-template-columns:repeat(5,minmax(0,1fr));}
 .new-choice-grid.four{grid-template-columns:repeat(3,minmax(0,1fr));}}
