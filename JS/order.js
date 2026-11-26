@@ -406,7 +406,7 @@
           if (!response.ok || result.success !== true && result.success !== 'true') throw new Error(result.message || 'Send failed');
           localStorage.removeItem(STORAGE_KEY);
           if (autosaveStatus) autosaveStatus.textContent = 'Request sent';
-          setStatus('success', 'Request sent successfully. Jeremy will follow up at the email or phone number you provided.');
+          setStatus('success', 'Request sent successfully. The Creative Studio will get back to you soon.');
         })
         .catch((error) => {
           const message = window.location.protocol === 'file:'

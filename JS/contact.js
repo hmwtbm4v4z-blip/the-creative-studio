@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(({response, result}) => {
                 if (!response.ok || result.success !== true && result.success !== "true") throw new Error(result.message || "Send failed");
                 status.className = "form-status success";
-                status.textContent = "Message sent successfully. Jeremy will get back to you soon.";
+                status.textContent = "Message sent successfully. The Creative Studio will get back to you soon.";
                 submitLabel.textContent = "Message Sent";
             })
             .catch((error) => {

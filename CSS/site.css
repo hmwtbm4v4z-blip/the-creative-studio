@@ -1182,7 +1182,7 @@ img{height:auto}
 @layer shell{
 .container{width:min(1180px,calc(100% - 48px));margin:auto}
 .tcs-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
-.tcs-pay-ribbon{display:flex;justify-content:center;align-items:center;min-height:42px;padding:6px 16px;background:#0d1b32;color:#fff;border-bottom:1px solid #28466d}
+.tcs-pay-ribbon{position:relative;display:flex;justify-content:center;align-items:center;gap:16px;min-height:42px;padding:6px 16px;background:#0d1b32;color:#fff;border-bottom:1px solid #28466d}
 .tcs-pay-ribbon a{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:30px;padding:5px 14px;border:1px solid #6da9ed;border-radius:999px;background:#17365f;color:#fff;font-size:.78rem;font-weight:750;letter-spacing:.02em;box-shadow:0 5px 18px #07122566;transition:background .2s ease,transform .2s ease,box-shadow .2s ease}
 .tcs-pay-ribbon a:hover,.tcs-pay-ribbon a:focus-visible{background:#1f73e8;transform:translateY(-1px);box-shadow:0 7px 22px #07122599}
 .tcs-pay-label{white-space:nowrap}
@@ -1196,6 +1196,16 @@ img{height:auto}
 .tcs-links li{position:relative}
 .tcs-links a{display:inline-flex;align-items:center;min-height:44px;font-size:.85rem;font-weight:600}
 .tcs-links a:hover,.tcs-links a[aria-current]{color:var(--blue)}
+.tcs-language-item{display:flex;align-items:center;gap:7px;margin-left:2px}
+.tcs-pay-ribbon .tcs-language-item{position:absolute;right:16px;margin-left:0;flex:0 0 auto;gap:8px}
+.tcs-language-caption{color:#cfe5ff;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.tcs-language-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.tcs-language-select{min-height:30px;max-width:155px;padding:4px 24px 4px 9px;border:1px solid #6da9ed;border-radius:999px;background:#17365f;color:#fff;font:600 .76rem Inter,"Segoe UI",Arial,sans-serif;cursor:pointer}
+.tcs-pay-ribbon .tcs-language-select:hover{background:#1f73e8}
+.tcs-language-select:focus-visible{outline:3px solid #59a8ff;outline-offset:2px}
+.tcs-google-translate{position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
+.goog-te-banner-frame.skiptranslate{display:none!important}
+body{top:0!important}
 .tcs-start{background:var(--blue);color:#fff!important;padding:10px 15px;border-radius:6px}
 .tcs-menu{display:none;border:1px solid var(--line);border-radius:6px;background:white;min-height:44px;padding:8px 12px}
 .tcs-submenu{position:absolute;top:100%;left:0;min-width:240px;list-style:none;padding:12px;margin:0;background:white;border:1px solid var(--line);border-radius:8px;box-shadow:0 16px 40px #13274418;display:none}
@@ -1248,6 +1258,7 @@ img{height:auto}
 .tcs-submenu{position:static;width:100%;box-shadow:none;clear:both}
 .tcs-links li{margin:4px 0}
 .tcs-links .tcs-start{display:flex}
+.tcs-language-item{justify-content:flex-start;margin:12px 0 0;padding-top:12px;border-top:1px solid var(--line)}
 .tcs-nav:not(:has(.tcs-menu)){flex-wrap:wrap}}
 @media(max-width:700px){.container{width:calc(100% - 32px)}
 .hero-buttons{display:grid;grid-template-columns:1fr 1fr}
@@ -1261,7 +1272,8 @@ html:not(.tcs-nav-enhanced) .tcs-links{flex-wrap:wrap}}
 @media(max-width:380px){.footer-grid{grid-template-columns:minmax(0,1fr)}
 .tcs-brand img{width:40px;height:40px}
 .tcs-brand strong{font-size:.85rem}}
-@media(max-width:520px){.tcs-pay-ribbon{min-height:40px;padding:5px 10px}.tcs-pay-ribbon a{width:100%;max-width:290px}.tcs-pay-note{display:none}}
+@media(max-width:520px){.tcs-pay-ribbon{min-height:40px;padding:5px 10px}.tcs-pay-ribbon a{width:auto;max-width:290px}.tcs-pay-note{display:none}.tcs-pay-ribbon .tcs-language-caption{display:none}.tcs-pay-ribbon .tcs-language-select{max-width:105px;font-size:.68rem}}
+.tcs-pay-ribbon .tcs-language-item{margin:0;padding-top:0;border-top:0}
 .tcs-interior{background:#fff;color:var(--ink);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.7}
 .tcs-interior main h1,.tcs-interior main h2,.tcs-interior main h3{font-family:Poppins,Inter,Arial,sans-serif;letter-spacing:-.04em;line-height:1.16}
 .tcs-interior main>[id$="-hero"]{padding:76px 0;background:linear-gradient(130deg,#f3f8ff,#fff 65%);color:var(--ink);text-align:center;min-height:0}
